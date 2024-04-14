@@ -2,7 +2,7 @@ require('dotenv').config()
 const cloudinary = require('cloudinary').v2;
 
 
-const Customer = require("../schema/customers");
+const User = require("../schema/customers");
 
 const bcrypt = require('bcrypt');
 
@@ -133,6 +133,7 @@ const updateCustomer = async (req, res) => {
         phoneNumber,
         profileImage,
         bio,
+        country,
     } = req.body;
 
 
@@ -176,6 +177,7 @@ const updateCustomer = async (req, res) => {
               phoneNumber,
               profileImage: updatedProfileImage, // Use the updated profileImage here
               bio,
+              country
             },
             { new: true }
           );
