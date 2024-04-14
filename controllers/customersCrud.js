@@ -2,7 +2,7 @@ require('dotenv').config()
 const cloudinary = require('cloudinary').v2;
 
 
-const User = require("../schema/customers");
+const Customer = require("../schema/customers");
 
 const bcrypt = require('bcrypt');
 

@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const connectToMongoDb = require('./dbConnection/connect');
 const customer = require('./routes/customersRoute');
-const client = require('./routes/clientsRoute')
 
 const cookieParser = require('cookie-parser');
 
@@ -16,11 +15,6 @@ app.use(cookieParser());
 
 //set route
 app.use('/api/v1/customers', customer);
-
-
-app.use('/api/v1/clients', client);
-
-
 
 
 
