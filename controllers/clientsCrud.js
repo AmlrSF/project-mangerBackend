@@ -2,8 +2,6 @@
 require('dotenv').config()
 
 const Client = require('../schema/Clients');
-const Domain = require('../schema/domains');
-
 
 
 
