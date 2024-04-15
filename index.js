@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const connectToMongoDb = require('./dbConnection/connect');
+
 const customer = require('./routes/customersRoute');
 const project = require('./routes/projectRoute');
+const invitation = require('./routes/invitationRoute');
 
 const cookieParser = require('cookie-parser');
 
@@ -19,6 +21,7 @@ app.use('/api/v1/customers', customer);
 
 app.use('/api/v1/projects', project);
 
+app.use('/api/v1/invitation', invitation);
 
 
 

@@ -45,6 +45,8 @@ async function acceptInvitation(req, res) {
         return res.status(404).json({ message: 'Project not found' });
       }
   
+      console.log(project);
+
       // Add the recipient (user who accepted the invitation) to the members array
       project.members.push(invitation.recipient);
       await project.save();
