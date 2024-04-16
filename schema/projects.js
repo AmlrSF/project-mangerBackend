@@ -13,8 +13,13 @@ const projectSchema = new Schema({
     members: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }]
+    }],
+    createdDate: {
+        type: Date,
+        default: Date.now
+    }
 });
+
 
 
 const Project = mongoose.model('Project', projectSchema);
