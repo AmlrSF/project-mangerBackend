@@ -2,7 +2,7 @@ const Invitation = require('../schema/invitation');
 const Project = require('../schema/projects');
 
 const Customer = require("../schema/customers");
-
+d
 // Get all invitations
 async function getAllInvitations(req, res) {
   try {
