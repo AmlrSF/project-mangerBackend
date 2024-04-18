@@ -20,7 +20,8 @@ const invitationSchema = new mongoose.Schema({
     type: String,
     enum: ['pending', 'accepted', 'rejected'],
     default: 'pending'
-  }
+  },
+  invitedAt: { type: Date, default: Date.now() },
 });
 
 const Invitation = mongoose.model('Invitation', invitationSchema);

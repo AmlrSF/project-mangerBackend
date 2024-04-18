@@ -47,7 +47,16 @@ async function deleteAllProjects(req, res) {
 async function getSingleProject(req, res) {
   try {
     const projectId = req.params.id;
-    const project = await Project.findById(projectId);
+    const project = await Project.findById(projectId).populate({
+      path: 'manager',
+      model: Customer,
+      select: 'firstName lastName email profileImage' // Specify the fields you want to select
+    })
+    .populate({
+      path: 'members',
+      model: Customer,
+      select: 'firstName lastName email profileImage' // Specify the fields you want to select
+    });
     if (!project) {
       return res.status(404).json({ message: 'Project not found' });
     }

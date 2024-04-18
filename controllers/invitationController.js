@@ -1,12 +1,13 @@
 const Invitation = require('../schema/invitation');
 const Project = require('../schema/projects');
 const Customer = require("../schema/customers");
+
 // Get all invitations
 async function getAllInvitations(req, res) {
   try {
     const invitations = await Invitation.find()
       .populate({
-        path: 'manager',
+        path: 'sender',
         model: Customer,
         select: 'firstName lastName email profileImage' // Specify the fields you want to select
       });
@@ -55,6 +56,7 @@ async function acceptInvitation(req, res) {
       // Add the recipient (user who accepted the invitation) to the members array
       project.members.push(invitation.recipient);
       await project.save();
+      
   
       res.json({ message: 'Invitation accepted successfully' });
     } catch (error) {
