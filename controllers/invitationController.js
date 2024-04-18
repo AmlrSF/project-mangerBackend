@@ -1,10 +1,17 @@
 const Invitation = require('../schema/invitation');
 const Project = require('../schema/projects');
 
+const Customer = require("../schema/customers");
+
 // Get all invitations
 async function getAllInvitations(req, res) {
   try {
-    const invitations = await Invitation.find();
+    const invitations = await Invitation.find()
+      .populate({
+        path: 'manager',
+        model: Customer,
+        select: 'firstName lastName email profileImage' // Specify the fields you want to select
+      });
     res.json(invitations);
   } catch (error) {
     res.status(500).json({ error: error.message });

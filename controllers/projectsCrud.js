@@ -1,9 +1,21 @@
 const Project = require('../schema/projects');
+const Customer = require("../schema/customers");
+
 
 // Get all projects
 async function getAllProjects(req, res) {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find()
+      .populate({
+        path: 'manager',
+        model: Customer,
+        select: 'firstName lastName email profileImage' // Specify the fields you want to select
+      })
+      .populate({
+        path: 'members',
+        model: Customer,
+        select: 'firstName lastName email profileImage' // Specify the fields you want to select
+      });
     res.json(projects);
   } catch (error) {
     res.status(500).json({ error: error.message });
