@@ -17,7 +17,8 @@ const projectSchema = new Schema({
     createdDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    chatMessages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }]
 });
 
 

@@ -1,5 +1,7 @@
 const Project = require('../schema/projects');
 const Customer = require("../schema/customers");
+const Message = require("../schema/customers");
+
 
 
 // Get all projects
@@ -15,7 +17,8 @@ async function getAllProjects(req, res) {
         path: 'members',
         model: Customer,
         select: 'firstName lastName email profileImage' // Specify the fields you want to select
-      });
+      })
+      
     res.json(projects);
   } catch (error) {
     res.status(500).json({ error: error.message });

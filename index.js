@@ -6,6 +6,7 @@ const connectToMongoDb = require('./dbConnection/connect');
 const customer = require('./routes/customersRoute');
 const project = require('./routes/projectRoute');
 const invitation = require('./routes/invitationRoute');
+const message = require('./routes/messageRoute');
 
 const cookieParser = require('cookie-parser');
 
@@ -23,6 +24,7 @@ app.use('/api/v1/projects', project);
 
 app.use('/api/v1/invitation', invitation);
 
+app.use('/api/v1/msg', message);
 
 
 
